@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Input your Binance API keys:</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #binanceKeyForm="ngForm" id="binanceKeyForm" autocomplete="off">
+        <div class="form-group">
+            <label for="key">Key</label>
+            <input name="key" [(ngModel)]="key" type="text" class="form-control" id="key" placeholder="Enter API key">
+          </div>
+          <div class="form-group">
+            <label for="secretKey">Secret Key</label>
+            <input name="secretKey" [(ngModel)]="secretKey" type="text" class="form-control" id="secretKey" placeholder="Enter secret API key">
+            <small id="secretKeyHelp" class="form-text text-muted">All keys are encrypted in our database.</small>
+          </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-success" (click)="addBinanceKeys()">Submit</button>
+  </div>

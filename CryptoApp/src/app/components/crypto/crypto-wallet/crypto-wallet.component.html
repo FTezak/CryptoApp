@@ -1,0 +1,64 @@
+<div *ngIf='wallet'>
+    <h2>Wallet total value: {{wallet.totalValue | number:'1.2-2'}} $      <button (click)="openWalletModal()" type="button" class=" ms-4 btn btn-sm btn-success">Add crypto to wallet</button></h2> 
+    
+    
+
+    <hr />
+
+    <div *ngIf='!wallet.hasBinance'>
+        <button (click)="openBinanceKeysModal()" type="button" class="btn btn-warning">Connect with your Binance wallet</button>
+    </div>
+    <div *ngIf='wallet.hasBinance'>
+        <button (click)="disconnectWithBinance()" type="button" class="btn btn btn-outline-danger">Disconnect with your Binance wallet</button>
+    </div>
+    
+
+    <hr />
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price <i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="The current value of the cryptocurrency"></i></th>
+                <th style="text-align: center;" scope="col">App wallet <i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="The value and amount of cryptocurrencies in the application wallet"></i></th>
+                <th style="text-align: center;" scope="col">Binance wallet <i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="The value and amount of cryptocurrencies in the Binance wallet"></i></th>
+                <th style="text-align: center;" scope="col">Total <i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="The value and amount of all cryptocurrencies in both wallets"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let crypto of wallet.cryptos'>
+                <td><img style="border-radius: 50%; width: 35px;"
+                        src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{crypto.cryptoApiReference}}.png"
+                        class="img-thumbnail" alt="..."> {{crypto.symbol}} - {{crypto.name}}</td>
+                <td>
+                    <h5><span class="badge bg-primary rounded-pill">${{crypto.price}}</span></h5>
+                </td>
+                <td>
+                    <div class="d-flex flex-column">
+                        <div class="badge bg-secondary rounded-pill">{{crypto.amount * crypto.price | number:'1.2-2'}} $
+                        </div>
+                        <div class="badge rounded-pill">{{crypto.amount}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex flex-column">
+                        <div class="badge bg-secondary rounded-pill">{{crypto.binanceAmount * crypto.price |
+                            number:'1.2-2'}} $</div>
+                        <div class="badge rounded-pill">{{crypto.binanceAmount}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex flex-column">
+                        <div class="badge bg-secondary rounded-pill">{{(crypto.amount + crypto.binanceAmount) *
+                            crypto.price | number:'1.2-2'}} $</div>
+                        <div class="badge rounded-pill">{{crypto.amount + crypto.binanceAmount}}</div>
+                    </div>
+                </td>
+
+
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

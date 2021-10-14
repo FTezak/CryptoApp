@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 ">
+  <div class="container">
+    <a class="navbar-brand" routerLink='/'>PinOpt</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <ng-container *ngIf="accountService.currentUser$ | async">
+          <li class="nav-item" *appHasRole='["Admin"]'><a class="nav-link" routerLink='/users'>Users</a></li>
+          <li class="nav-item" *appHasRole='["Admin"]'><a class="nav-link" routerLink='/admin'>Admin</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink='/fav-crypto'>Favorite Crypto</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink='/wallet'>Wallet</a></li>
+        </ng-container>
+
+
+        
+
+      </ul>
+   
+      <ul class="navbar-nav">
+
+
+
+        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="d-flex"
+          *ngIf="(accountService.currentUser$ | async) === null">
+          <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text"
+            placeholder="Username">
+          <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password"
+            placeholder="Password">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+
+
+
+        <li class="nav-item dropdown" *ngIf="(accountService.currentUser$ | async) as user">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Welcome {{user.userName | titlecase}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink='/newsletter'>Newsletter settings</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item pointer" (click)="logout()">Log out</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="(accountService.currentUser$ | async) === null">
+          <a class="nav-link" routerLink='/register'>Register</a>
+        </li>
+        <li class="nav-item" *ngIf="(accountService.currentUser$ | async) === null">
+          <a class="nav-link" routerLink='/login'>Login</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  
+</nav>

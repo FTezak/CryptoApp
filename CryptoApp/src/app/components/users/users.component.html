@@ -1,0 +1,6 @@
+<ul *ngIf="accountService.currentUser$ | async">
+    <li *ngFor='let user of usersService.users' class="mb-4">
+      [{{user.id}}] {{user.userName}}
+             <button (click)="usersService.removeUser(user.id)" class="btn btn-sm btn-danger my-2 my-sm-0 ml-3" type="submit">Delete</button>
+    </li>
+  </ul>

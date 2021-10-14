@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CryptoAPI.Controllers.NewsletterController">
+    <Position X="17.25" Y="3.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAIBAAEAAAAAAAAAAABAAAAAAAAAAAAAAAAAKAAAAA=</HashCode>
+      <FileName>Controllers\NewsletterController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoDataRepository" />
+      <Field Name="_cryptoRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Controllers.BaseApiController" Collapsed="true">
+    <Position X="17.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BaseApiController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoAPI.Services.NewsletterSenderService">
+    <Position X="5.75" Y="10.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_cryptoService" Type="CryptoAPI.Interfaces.ICryptoService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="12.055" />
+        <Point X="6" Y="14.062" />
+        <Point X="11.5" Y="14.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_walletService" Type="CryptoAPI.Interfaces.IWalletService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="11.188" />
+        <Point X="9.188" Y="11.188" />
+        <Point X="9.188" Y="10.603" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.233" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgBAAAAAAAAAAAAAAAAAAQAAAAEgAAAAAAAAAAAEA=</HashCode>
+      <FileName>Services\NewsletterSenderService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoService" />
+      <Field Name="_templateRepository" />
+      <Field Name="_walletService" />
+      <Field Name="_emailService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoAPI.Tasks.BinanceApi">
+    <Position X="17.5" Y="11" Width="2" />
+    <AssociationLine Name="_cryptoRepository" Type="CryptoAPI.Interfaces.ICryptoRepository">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.527" Y="0.198" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ApiServices\BinanceApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Tasks.CryptocompareApi">
+    <Position X="9.25" Y="3" Width="2.75" />
+    <AssociationLine Name="_cryptoRepository" Type="CryptoAPI.Interfaces.ICryptoRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="6.796" />
+        <Point X="11.75" Y="7.242" />
+        <Point X="12.417" Y="7.242" Type="JumpStart" />
+        <Point X="12.583" Y="7.242" Type="JumpEnd" />
+        <Point X="15.089" Y="7.242" Type="JumpStart" />
+        <Point X="15.255" Y="7.242" Type="JumpEnd" />
+        <Point X="17.5" Y="7.242" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAEAEQAAAQBACAgAAkAAAAAAAAAAAgAAAAABICACAgA=</HashCode>
+      <FileName>ApiServices\CryptocompareApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoDataRepository" />
+      <Field Name="_cryptoRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Services.TimedService">
+    <Position X="10.5" Y="7.75" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_ns" Type="CryptoAPI.Services.NewsletterSenderService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="9.69" />
+        <Point X="12.25" Y="11.5" />
+        <Point X="10.24" Y="11.5" Type="JumpStart" />
+        <Point X="10.073" Y="11.5" Type="JumpEnd" />
+        <Point X="8.25" Y="11.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="-0.291" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoDataRepository" Type="CryptoAPI.Interfaces.ICryptoDataRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="7.75" />
+        <Point X="12.5" Y="6.536" />
+        <Point X="14.219" Y="6.536" />
+        <Point X="14.219" Y="6.161" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoService" Type="CryptoAPI.Interfaces.ICryptoService" FixedFromPoint="true">
+      <Path>
+        <Point X="12.688" Y="9.69" />
+        <Point X="12.688" Y="12.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoWalletRepository" Type="CryptoAPI.Interfaces.ICryptoWalletRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="7.875" />
+        <Point X="8" Y="7.875" />
+        <Point X="8" Y="7.046" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_emailService" Type="CryptoAPI.Interfaces.IEmailService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.438" Y="9.69" />
+        <Point X="11.438" Y="10.696" />
+        <Point X="10.156" Y="10.696" />
+        <Point X="10.156" Y="12.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_walletService" Type="CryptoAPI.Interfaces.IWalletService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="8.875" />
+        <Point X="9.312" Y="8.875" />
+        <Point X="9.312" Y="9.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAgBAAAAAAAAAAAAAgAAJAQIAAAEgAAAQABQCCAAEA=</HashCode>
+      <FileName>Services\TimedService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_ns" />
+      <Field Name="_cca" />
+      <Field Name="_cryptoDataRepository" />
+      <Field Name="_cryptoRepository" />
+      <Field Name="_cryptoService" />
+      <Field Name="_cryptoWalletRepository" />
+      <Field Name="_emailService" />
+      <Field Name="_cmca" />
+      <Field Name="_templateRepository" />
+      <Field Name="_walletService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoAPI.Tasks.CoinmarketcapApi">
+    <Position X="14" Y="9.25" Width="2.25" />
+    <AssociationLine Name="_cryptoDataRepository" Type="CryptoAPI.Interfaces.ICryptoDataRepository">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.579" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoRepository" Type="CryptoAPI.Interfaces.ICryptoRepository">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.066" Y="0.095" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>oAAAAQAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAICAAAAA=</HashCode>
+      <FileName>ApiServices\CoinmarketcapApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoDataRepository" />
+      <Field Name="_cryptoRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Entities.Newsletter">
+    <Position X="14.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAAAAAACAAACAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Newsletter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoAPI.Entities.Templates">
+    <Position X="17.25" Y="13" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAEAIAAAAAAAACAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Templates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoDataRepository">
+    <Position X="13.5" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAQAAAAEAAAAAAAAIAAgACQCAAAAQACQAAAACAAA=</HashCode>
+      <FileName>Interfaces\ICryptoDataRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoRepository">
+    <Position X="17.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAACAEAAAEAAAAAAQAIAAKIAAQEAAAAAAAAAkA=</HashCode>
+      <FileName>Interfaces\ICryptoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoService">
+    <Position X="11.5" Y="12.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAACACAEAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICryptoService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ITemplateRepository">
+    <Position X="5.75" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITemplateRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.IWalletService">
+    <Position X="8.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Interfaces\IWalletService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.IEmailService">
+    <Position X="8.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IEmailService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoWalletRepository">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICryptoWalletRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

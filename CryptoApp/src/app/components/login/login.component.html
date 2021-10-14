@@ -1,0 +1,20 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-4">
+        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="row g-3 mb-3"
+        *ngIf="(accountService.currentUser$ | async) === null">
+
+              <h2 class="text-center text-primary">Login</h2>
+
+              <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text" placeholder="Username">
+              <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
+
+              <div class="form-group text-center">
+                <button class="btn btn-outline-success" type="submit">Login</button>
+                <a class="nav-link" routerLink='/change-password'>Forgot your password?</a>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

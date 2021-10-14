@@ -1,0 +1,67 @@
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs"
+          tooltip="The current value of the cryptocurrency"></i></th>
+      <th scope="col">24h%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs"
+          tooltip="Percentage change in price compared to 24 hours ago"></i></th>
+      <th scope="col">7D%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs"
+          tooltip="Percentage price change compared to 7 days ago"></i></th>
+      <th scope="col">1M%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs"
+          tooltip="Percentage change in price compared to 1 month ago"></i></th>
+      <th *ngIf="(accountService.currentUser$ | async)" scope="col">Favorite<i style="color: white;"
+          class="ms-2 fa fa-info-circle fa-xs" tooltip="Indicates whether the cryptocurrency is in favorites"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="pointer">
+      <td [routerLink]="['/crypto', cryptosCurrentData.symbol]"><img style="border-radius: 50%; width: 35px;"
+          src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{cryptosCurrentData.cryptoApiReference}}.png"
+          class="img-thumbnail" alt="..."> {{cryptosCurrentData.symbol}} - {{cryptosCurrentData.name}}</td>
+      <td [routerLink]="['/crypto', cryptosCurrentData.symbol]">
+        <h5><span class="badge bg-primary rounded-pill">${{cryptosCurrentData.price}}</span></h5>
+      </td>
+      <td [routerLink]="['/crypto', cryptosCurrentData.symbol]"
+        [ngStyle]="{'color': cryptosCurrentData.dayPercentage < 0 ? 'red' : 'green' }">
+        {{cryptosCurrentData.dayPercentage}}%</td>
+      <td [routerLink]="['/crypto', cryptosCurrentData.symbol]"
+        [ngStyle]="{'color': cryptosCurrentData.weekPercentage < 0 ? 'red' : 'green' }">
+        {{cryptosCurrentData.weekPercentage}}%</td>
+      <td [routerLink]="['/crypto', cryptosCurrentData.symbol]"
+        [ngStyle]="{'color': cryptosCurrentData.monthPercentage < 0 ? 'red' : 'green' }">
+        {{cryptosCurrentData.monthPercentage}}%</td>
+
+
+
+
+      <td *ngIf="(accountService.currentUser$ | async)">
+        <button (click)="addToFavorite(cryptosCurrentData.symbol)" class="btn" *ngIf="!cryptosCurrentData.favorite">
+          <i style="color: white;" class="fa fa-star-o fa-xs" tooltip="Add to favorites"></i>
+        </button>
+        <button (click)="addToFavorite(cryptosCurrentData.symbol)" class="btn" *ngIf="cryptosCurrentData.favorite">
+          <i style="color: white;" class="fa fa-star fa-xs" tooltip="Remove from favorites"></i>
+        </button>
+      </td>
+
+
+    </tr>
+  </tbody>
+
+</table>
+
+<div class="form-inline d-flex align-items-center mb-4">
+  <div class="btn-group" btnRadioGroup [(ngModel)]="radioModel">
+    <label (click)="updateData()" class="btn btn-outline-dark mb-0" btnRadio="day" tooltip="Last 24 hours">24h</label>
+    <label (click)="updateData()" class="btn btn-outline-dark mb-0" btnRadio="week" tooltip="Last 7 days">7D</label>
+    <label (click)="updateData()" class="btn btn-outline-dark mb-0" btnRadio="month" tooltip="Last 30 days">30D</label>
+    <label (click)="updateData()" class="btn btn-outline-dark mb-0" btnRadio="all" tooltip="All time">All</label>
+  </div>
+
+</div>
+
+<script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<div id="chartdiv"></div>

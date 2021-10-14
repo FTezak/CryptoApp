@@ -1,0 +1,25 @@
+<h2>Your favorite crypto:</h2>
+
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pointer" *ngFor='let crypto of favoriteCrypto'>
+        <td  [routerLink]="['/crypto', crypto.symbol]" ><img style="border-radius: 50%; width: 35px;"
+            src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{crypto.cryptoApiReference}}.png"
+            class="img-thumbnail" alt="..."> {{crypto.symbol}} - {{crypto.name}}</td>
+
+          <td >
+            <button (click)="addToFavorite(crypto)" class="btn">
+              <i style="color: white;" class="fa fa-star fa-xs"></i>
+            </button>
+          </td>
+          
+  
+      </tr>
+    </tbody>
+  </table>

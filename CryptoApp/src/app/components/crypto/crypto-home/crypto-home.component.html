@@ -1,0 +1,52 @@
+
+<table class="table table-dark table-striped" *ngIf="!uploading">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="The current value of the cryptocurrency"></i></th>
+      <th scope="col">24h%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="Percentage change in price compared to 24 hours ago"></i></th>
+      <th scope="col">7D%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="Percentage price change compared to 7 days ago"></i></th>
+      <th scope="col">1M%<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="Percentage change in price compared to 1 month ago"></i></th>
+      <th *ngIf="(accountService.currentUser$ | async)" scope="col">Favorite<i style="color: white;" class="ms-2 fa fa-info-circle fa-xs" tooltip="Indicates whether the cryptocurrency is in favorites"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="pointer" *ngFor='let crypto of cryptosCurrentData'>
+      <td [routerLink]="['/crypto', crypto.symbol]"> 
+  
+          <img style="border-radius: 50%; width: 35px;"
+            src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{crypto.cryptoApiReference}}.png"
+            class="img-thumbnail" alt="...">{{crypto.symbol}} - {{crypto.name}}
+ 
+        </td>
+      <td [routerLink]="['/crypto', crypto.symbol]">
+        <h5><span class="badge bg-primary rounded-pill">${{crypto.price}}</span></h5>
+      </td >
+      <td  [routerLink]="['/crypto', crypto.symbol]" [ngStyle]="{'color': crypto.dayPercentage < 0 ? 'red' : 'green' }">{{crypto.dayPercentage}}%</td>
+      <td  [routerLink]="['/crypto', crypto.symbol]" [ngStyle]="{'color': crypto.weekPercentage < 0 ? 'red' : 'green' }">{{crypto.weekPercentage}}%</td>
+      <td  [routerLink]="['/crypto', crypto.symbol]" [ngStyle]="{'color': crypto.monthPercentage < 0 ? 'red' : 'green' }">{{crypto.monthPercentage}}%</td>
+      
+
+        
+          
+        <td *ngIf="(accountService.currentUser$ | async)">
+          <button (click)="addToFavorite(crypto)" class="btn" *ngIf="!crypto.favorite">
+            <i style="color: white;" class="fa fa-star-o fa-xs" tooltip="Add to favorites"></i>
+          </button>
+          <button (click)="addToFavorite(crypto)" class="btn" *ngIf="crypto.favorite">
+            <i style="color: white;" class="fa fa-star fa-xs" tooltip="Remove from favorites"></i>
+          </button>
+        </td>
+        
+
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination [boundaryLinks]="true" [maxSize]="5" [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage" [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+  </pagination>
+</div>

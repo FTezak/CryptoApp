@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CryptoAPI.Controllers.CryptoController">
+    <Position X="2.5" Y="2.5" Width="2.25" />
+    <Members>
+      <Field Name="_cca" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_cryptoService" Type="CryptoAPI.Interfaces.ICryptoService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.625" Y="5.723" />
+        <Point X="3.625" Y="6.098" />
+        <Point X="6.688" Y="6.098" />
+        <Point X="6.688" Y="5.815" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.169" Y="0.386" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoDataService" Type="CryptoAPI.Interfaces.ICryptoDataService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="3.5" />
+        <Point X="6.812" Y="3.5" />
+        <Point X="6.812" Y="3.104" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIgoBAAAAADBACAAAACBAIAAAAAAAAAAAAAAQKgAAAA=</HashCode>
+      <FileName>Controllers\CryptoController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cca" />
+      <Field Name="_cryptoService" />
+      <Field Name="_cryptoDataService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Tasks.CryptocompareApi">
+    <Position X="8.25" Y="1.25" Width="1.75" />
+    <AssociationLine Name="_cryptoRepository" Type="CryptoAPI.Interfaces.ICryptoRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.812" />
+        <Point X="13.015" Y="1.812" />
+        <Point X="13.015" Y="1.812" />
+        <Point X="14.75" Y="1.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.443" Y="0.103" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoDataRepository" Type="CryptoAPI.Interfaces.ICryptoDataRepository">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.773" Y="0.15" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAEAEQAAAQBACAgAAkAAAAAAAAAAAgAAAAABICACAgA=</HashCode>
+      <FileName>ApiServices\CryptocompareApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoRepository" />
+      <Field Name="_cryptoDataRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.Services.CryptoService">
+    <Position X="11" Y="2.25" Width="2.25" />
+    <AssociationLine Name="_cryptoRepository" Type="CryptoAPI.Interfaces.ICryptoRepository" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="4.375" />
+        <Point X="14.75" Y="4.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.044" Y="0.125" Height="0.182" Width="1.409" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_cryptoDataRepository" Type="CryptoAPI.Interfaces.ICryptoDataRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.188" Y="4.959" />
+        <Point X="11.188" Y="5.334" />
+        <Point X="11.188" Y="5.334" />
+        <Point X="11.188" Y="5.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.752" Y="0.125" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAIAACACAEAAAAAAAAAAQAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Services\CryptoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoRepository" />
+      <Field Name="_cryptoDataRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoAPI.Services.CryptoDataService">
+    <Position X="14.5" Y="5.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_cryptoDataRepository" Type="CryptoAPI.Interfaces.ICryptoDataRepository">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.29" Y="-0.362" Height="0.182" Width="1.673" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Services\CryptoDataService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_cryptoDataRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="1.8" />
+  </Class>
+  <Class Name="CryptoAPI.Controllers.BaseApiController" Collapsed="true">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BaseApiController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoAPI.Entities.CryptoCurrency">
+    <Position X="2.75" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgADAAAAEAAAIAIAAAAAAAQAAAAAAAQAAAAAAAAACAA=</HashCode>
+      <FileName>Entities\CryptoCurrency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoAPI.Entities.CryptoCurrencyData">
+    <Position X="6.5" Y="8" Width="2" />
+    <AssociationLine Name="CryptoCurrency" Type="CryptoAPI.Entities.CryptoCurrency">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.16" Y="0.068" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAIAAAAAAAAABAQAAAAAABAAAAAACAAAA=</HashCode>
+      <FileName>Entities\CryptoCurrencyData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CryptoCurrency" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoAPI.DTOs.CryptoDto">
+    <Position X="15.25" Y="8.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>DTOs\CryptoDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoAPI.DTOs.CryptoDataDto">
+    <Position X="12.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAIAABAAAAQAAAAAAAABEACAAAAACAA=</HashCode>
+      <FileName>DTOs\CryptoDataDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoDataService">
+    <Position X="5.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Interfaces\ICryptoDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoService">
+    <Position X="5.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAACACAEAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICryptoService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoDataRepository">
+    <Position X="10" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEQAAQAAAAEAAAAAAAAIAAgACQCAAAAQACQAAAACAAA=</HashCode>
+      <FileName>Interfaces\ICryptoDataRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CryptoAPI.Interfaces.ICryptoRepository">
+    <Position X="14.75" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAACAEAAAEAAAAAAQAIAAKIAAQEAAAAAAAAAkA=</HashCode>
+      <FileName>Interfaces\ICryptoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

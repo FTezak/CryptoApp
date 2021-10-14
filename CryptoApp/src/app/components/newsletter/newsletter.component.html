@@ -1,0 +1,51 @@
+<ng-template #popTemplate4>
+    <div [innerHtml]="html4"></div>
+</ng-template>
+<ng-template #popTemplate8>
+    <div [innerHtml]="html8"></div>
+</ng-template>
+
+<div class="form-check form-switch mb-4">
+    <input (click)="removeUserNewsletterConfig()" [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label *ngIf="false" class="form-check-label" for="flexSwitchCheckDefault">Start receiving newsletters</label>
+    <h5 *ngIf="isChecked">Newsletter subscription: <span class="badge bg-success rounded-pill ms-3">On</span></h5>
+    <h5 *ngIf="!isChecked">Newsletter subscription: <span class="badge bg-danger rounded-pill ms-3">Off</span></h5>
+</div>
+
+
+<div *ngIf="isChecked" style="background-color: white; border-radius: 20px;" class="p-3 mb-3">
+    <h5 *ngIf="isChecked">Choose how many times a day you want to receive newsletter:</h5>
+
+    <div class="form-inline d-flex align-items-center mt-3" *ngIf="isChecked">
+
+
+        <div  (click)="clicked()" class="btn-group" btnRadioGroup [(ngModel)]="radioModel">
+            <label class="btn btn-outline-dark mb-0" btnRadio="1" tooltip="Once a day">Once a day at 12:00</label>
+            <label class="btn btn-outline-dark mb-0" btnRadio="2" tooltip="Twice a day">Twice a day at 12:00 and
+                00:00</label>
+            <label class="btn btn-outline-dark mb-0" btnRadio="4" [tooltip]="popTemplate4">Four times a day</label>
+            <label class="btn btn-outline-dark mb-0" btnRadio="8" [tooltip]="popTemplate8">Eight times a day</label>
+            <label class="btn btn-outline-dark mb-0" btnRadio="24" tooltip="Every hour">Every hour</label>
+        </div>
+
+    </div>
+
+</div>
+<div *ngIf="isChecked" style="background-color: white; border-radius: 20px;" class="p-3 mb-3">
+
+    <h5 *ngIf="isChecked">Choose whether you want to receive wallet information, cryptocurrency information in
+        favorites, or both:</h5>
+
+    <div  (click)="clicked()" *ngIf="isChecked" class="btn-group">
+        <label class="btn btn-outline-dark" [(ngModel)]="checkModel.wallet" btnCheckbox tabindex="0"
+            role="button">Wallet data</label>
+        <label class="btn btn-outline-dark" [(ngModel)]="checkModel.favorites" btnCheckbox tabindex="0"
+            role="button">Favorites info</label>
+    </div>
+</div>
+<div style="text-align: center;">
+
+    <button (click)="addToUserNewsletterConfig()" *ngIf="isChecked && dirtyData" type="button" class="btn btn-success">Save</button>
+</div>
+
+

@@ -1,0 +1,19 @@
+<div class="search-box mb-5" >
+	<div style="max-width: 600px;" class="input-group">
+
+		<input id="search" type="search" name="search" ngModel class="form-control form-control-md" type="text" placeholder="Search"
+        (keyup)="search($event.target.value)" autocomplete="off">
+		<div class="input-group-append">
+		<button type="button" class="btn btn-secondary ms-2" (click)="emptyResolts()">Cancel</button>
+	</div>
+	</div>
+
+	<div class="search-result" >
+		<ul class="list-group">
+			<li class="list-group-item" *ngFor="let item of searchResults"  (click)='goto(item.symbol)'><img style="border-radius: 50%; width: 35px;"
+				src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{item.cryptoApiReference}}.png"
+				class="img-thumbnail" alt="..."> {{item.symbol}} - <strong>{{item.name.slice(0, numberOfLettersTypedIn)}}</strong>{{item.name.slice(numberOfLettersTypedIn, item.name.lenght)}}</li>
+		</ul>
+	</div>
+	
+</div>
